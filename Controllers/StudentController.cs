@@ -16,12 +16,23 @@ public class StudentController : ControllerBase
 
     }
     [HttpGet]
+    [Route("/getstudents")]
     public  List<StudentsData> GetStudent(){
         return  studentservice.Get();
-        
+        //throw new NotImplementedException();
     }
+    
+
+[HttpGet]
+[Route("/test")]
+public List<StudentsData> TestStudent(){
+//throw new NotImplementedException();
+return  studentservice.Get();
+}
+
 
     [HttpPost]
+    [Route("/addstudent")]
 
     public async Task<IActionResult> PostStudent(StudentsData studata){
         await studentservice.CreateAsync(studata);
